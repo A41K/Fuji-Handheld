@@ -72,19 +72,19 @@
       "diff_pair_dimensions": [],
       "drc_exclusions": [
         [
-          "copper_edge_clearance|223916600|66757600|3a6376c8-0960-4e00-8d93-51caacffdb59|7b10096f-2b15-47bb-a19c-377e4dc09074",
+          "copper_edge_clearance|117413000|78814800|0ca54235-13f9-4d87-bfcf-b1dc95d695e0|7b10096f-2b15-47bb-a19c-377e4dc09074",
           ""
         ],
         [
-          "copper_edge_clearance|231216600|66757600|3a6376c8-0960-4e00-8d93-51caacffdb59|5d76dca8-7431-42ea-b49b-e4abbdad3d3a",
+          "copper_edge_clearance|124713000|78814800|0ca54235-13f9-4d87-bfcf-b1dc95d695e0|5d76dca8-7431-42ea-b49b-e4abbdad3d3a",
           ""
         ],
         [
-          "silk_edge_clearance|228166600|66395600|3a6376c8-0960-4e00-8d93-51caacffdb59|9b7d464f-08df-4967-a1f1-4ec17a6e1bb3",
+          "silk_edge_clearance|121663000|78403757|0ca54235-13f9-4d87-bfcf-b1dc95d695e0|9b7d464f-08df-4967-a1f1-4ec17a6e1bb3",
           ""
         ],
         [
-          "silk_edge_clearance|229466600|66395600|3a6376c8-0960-4e00-8d93-51caacffdb59|3fb83be2-f966-41e3-9a4a-a3a894c65ff0",
+          "silk_edge_clearance|122963000|78403757|0ca54235-13f9-4d87-bfcf-b1dc95d695e0|3fb83be2-f966-41e3-9a4a-a3a894c65ff0",
           ""
         ]
       ],
@@ -541,7 +541,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../Gerber/",
       "specctra_dsn": "",
       "vrml": ""
     },
