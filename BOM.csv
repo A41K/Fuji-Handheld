@@ -15,7 +15,7 @@ Conn_01x08_Pin,1,,$0.00,$0.00,
 SW_SPDT,1,,$0.00,$0.00,
 SW_Push,2,,$0.00,$0.00,
 SW_Push,6,,$0.00,$0.00,
-MCP73831-2-OT,1,,$0.00,$0.00,
+MCP73831-2-OT,1,hestore,$1.57,$1.57,https://www.hestore.hu/prod_10038925.html
 AP2112K-3.3,1,hestore,$0.40,$0.40,https://www.hestore.hu/prod_10047483.html
 ESP32-S3-MINI-1,1,hestore,$4.81,$4.81,https://www.hestore.hu/prod_10051729.html
 Estimated total shipping,1,,,$0.00,
