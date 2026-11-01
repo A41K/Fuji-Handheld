@@ -97,3 +97,62 @@ void update(float dt) {
     if (bx + ball < 0)      { aiScore++;     point(-1); }
     else if (bx > SCREEN_W) { playerScore++; point(+1); }
 }
+
+void draw() {
+    frame.fillSprite(TFT_BLACK);
+
+    for (int y = 0; y < SCREEN_H; y += 16)
+      frame.fillRect(SCREEN_W / 2 - 1, y, 2, 8, TFT_DARKGREY);
+
+      frame.setTextColor(TFT_WHITE);
+      frame.drawRightString(String(playerScore), SCREEN_W / 2 - 16, 8, 4);
+      frame.drawString(String(aiScore), SCREEN_W / 2 + 16, 8, 4);
+
+      frame.fillRect(MARGIN, (int)playerY, PAD_W, PAD_H, TFT_CYAN);
+      frame.fillRect(SCREEN_W - MARGIN - PAD_W, (int)aiY, PAD_W, PAD_H, TFT_ORANGE);
+      frame.fillRect((int)bx,  (int)by, BALL, BALL, BALL, TFT_WHITE);
+
+      if (state == READY) {
+        frame.setTextColor(TFT_YELLOW);
+        frame.drawCentreString("Press A to serve", SCREEN_W / 2, 150, 4);
+        frame.setTextColor(TFT_LIGHTGREY);
+        frame.drawCentreString("UP/DOWN move     hold A+B for menu", SCREEN_W / 2, 218, 2);
+      } else if (state == OVER) {
+        frame.fillRoundRect(50, 85, 220, 80, 10, TFT_BLACK);
+        frame.fillRoundRect(50, 85, 220, 80, 10, TFT_WHITE);
+        frame.setTextColor(playerScore > aiScore ? TFT_GREEN : TFT_RED);
+        frame.drawCentreString(playerScore > aiScore ? "YOU WIN!" : "YOU LOSE", SCREEN_W / 2, 98, 4);
+        frame.setTextColor(TFT_WHITE);
+        frame.drawCentreString("Press A to play again", SCREEN_W / 2, 135, 2);
+      }
+
+      frame.pushSprite(0, 0)    
+}
+
+void setup() {
+    if (!consoleBegin(tft, frame)) {
+        while (true) delay(1000);
+    }
+    randomSeed(esp_random());
+    newGame();
+    lastMicros = micros();
+}
+
+void loop() {
+  consoleCheckExit();
+
+  bool a = btnA();
+  if (a && !prevA) {
+    if (state == READY) serve();
+    else if (state == OVER) newGame();
+  }
+  prevA = a;
+  
+  uint32_t now = micros();
+  acc += (now - lastMicros) / 1000000.0f;
+  lastMicros = now;
+  if (acc > 0.1f) acc = 0.1f;
+  while (acc >= STEP) { update(STEP); acc -= STEP; }
+
+  draw();
+}
